@@ -1,0 +1,154 @@
+/* Contenedor de productos con fondo oscuro degradado y efecto glass */
+.contenedor-productos {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+    border-radius: 20px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Título con tipografía monoespaciada, borde decorativo a la izquierda y color neón */
+.titulo-centrado {
+    text-align: left;
+    font-family: 'Courier New', monospace;
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 2rem;
+    border-left: 5px solid #ffcc00;
+    padding-left: 10px;
+}
+
+/* Disposición flexible para los productos, con wrap y espacio distribuido */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1.5rem;
+}
+
+/* Tarjeta de producto con efecto de zoom y un estilo minimalista y oscuro */
+.producto {
+    width: calc(33% - 1rem);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagen del producto con efecto de recorte y bordes redondeados */
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Título del producto con fuente grande y color de acento neón */
+.producto h3 {
+    font-size: 1.8rem;
+    color: #ffcc00;
+    margin: 0.5rem 0;
+}
+
+/* Descripción con tipografía legible y tono grisáceo */
+.producto p {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+/* Botón de producto con contorno neón y fondo transparente, que invierte colores al pasar el mouse */
+.producto button {
+    background-color: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.producto button:hover {
+    background-color: #ffcc00;
+    color: #1a1a1a;
+}
+
+/* Botón para el carrito con estilo circular y borde discontinuo */
+.carrito-button {
+    display: inline-block;
+    background: transparent;
+    border: 2px dashed #ffcc00;
+    color: #ffcc00;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    margin: 2rem auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.carrito-button:hover {
+    background-color: #ffcc00;
+    color: #1a1a1a;
+}
+
+/* Adaptación en dispositivos móviles: tarjetas a ancho completo */
+@media (max-width: 600px) {
+    .producto {
+        width: 100%;
+    }
+}
+
+.nav-button {
+    margin: 20px;
+    padding: 10px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-button:hover {
+    background-color: #0056b3;
+  }
+
+/* Mensaje de éxito con animación bounce y fade */
+.mensaje-exito {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #ffcc00;
+    color: #1a1a1a;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    animation: bounceIn 0.5s ease-out, fadeOut 0.5s 2.5s forwards;
+    z-index: 1000;
+}
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

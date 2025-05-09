@@ -1,0 +1,26 @@
+<!-- Contenedor para el mensaje de éxito -->
+<div *ngIf="mensajeExito" class="mensaje-exito">
+  Producto agregado al carrito con éxito!
+</div>
+
+<main class="contenedor-productos">
+  <h2 class="titulo-centrado">Catálogo de Productos</h2>
+  
+  <div class="productos">
+    <div *ngFor="let producto of productos" class="producto">
+      <img [src]="producto.imagen" alt="{{producto.nombre}}">
+      <h3>{{producto.nombre}}</h3>
+      <p>Precio: ${{producto.precio}} MXN</p>
+      <p>Stock: {{producto.stock}}</p> <!-- Línea añadida para mostrar el stock -->
+      <button (click)="agregarAlCarrito(producto)">Agregar al carrito</button>
+    </div>
+  </div>
+  
+  <button class="carrito-button" (click)="irAlCarrito()">
+    <i class="fa-solid fa-cart-shopping"></i>
+    Ir al carrito
+  </button>
+
+  <!-- Añadir al final del template -->
+  <button (click)="irAInventario()" class="nav-button">Administrar Inventario</button>
+</main>

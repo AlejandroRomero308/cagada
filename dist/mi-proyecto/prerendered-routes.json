@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/": {},
+    "/carrito": {},
+    "/inventario": {},
+    "/productos": {}
+  }
+}

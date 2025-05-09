@@ -1,0 +1,151 @@
+/* Contenedor principal del carrito con efecto glassmorphism y fondo semitransparente */
+.carrito-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Título del carrito con borde inferior discontinuo y fuente neón */
+.carrito-titulo {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-size: 2rem;
+    color: #00ffcc;
+    border-bottom: 2px dashed #00ffcc;
+}
+
+/* Lista sin viñetas y sin padding */
+.carrito-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ítems del carrito con layout en grid para separar información y botones */
+.carrito-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    border-left: 5px solid #00ffcc;
+    transition: background 0.3s ease;
+}
+.carrito-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Información del producto en el carrito con tipografía moderna */
+.producto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.producto-nombre {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+}
+.producto-precio {
+    font-size: 1.2rem;
+    color: #00ffcc;
+}
+
+/* Botón de eliminar con borde neón y efecto hover de escalado */
+.eliminar-button {
+    background: none;
+    border: 2px solid #00ffcc;
+    color: #00ffcc;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.eliminar-button:hover {
+    background: #00ffcc;
+    color: #1a1a1a;
+    transform: scale(1.1);
+}
+
+/* Resumen del carrito con separación clara y línea divisoria */
+.carrito-resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.carrito-total {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Botón de recibo con borde redondeado y transición de color */
+.recibo-button {
+    background: none;
+    border: 2px solid #00ffcc;
+    color: #00ffcc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.recibo-button:hover {
+    background: #00ffcc;
+    color: #1a1a1a;
+}
+
+/* Carrito vacío con mensaje centrado y acento neón */
+.carrito-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    color: #bbb;
+    padding: 2rem;
+    font-size: 1.3rem;
+}
+.fa-cart-shopping {
+    font-size: 5rem;
+    color: #00ffcc;
+}
+
+/* Sección de recibo con fondo semitransparente y borde lateral en neón */
+.recibo {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border-left: 5px solid #00ffcc;
+}
+.recibo-titulo {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #00ffcc;
+    margin-bottom: 0.5rem;
+}
+.recibo-contenido {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: #fff;
+}

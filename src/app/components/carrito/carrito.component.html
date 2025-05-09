@@ -1,0 +1,49 @@
+<div class="carrito-container">
+    <h2 class="carrito-titulo">Carrito</h2>
+
+    <div class="carrito-contenido" *ngIf="carrito.length > 0">
+        <ul class="carrito-lista">
+            <li class="carrito-item" *ngFor="let item of carrito">
+                <div class="producto-info">
+                    <span class="producto-nombre">{{ item.producto.nombre }}</span>
+                    <span class="producto-precio">${{ item.producto.precio }} MXN</span>
+                    <span class="producto-cantidad">Cantidad: {{ item.cantidad }}</span>
+                </div>
+                <div class="cantidad-controles">
+                    <button class="cantidad-button" (click)="aumentarCantidad(item.producto.id)">+</button>
+                    <button class="cantidad-button" (click)="disminuirCantidad(item.producto.id)">-</button>
+                </div>
+                <button class="eliminar-button" (click)="eliminarProducto(item.producto.id)">Eliminar</button>
+            </li>
+        </ul>
+
+        <div class="carrito-resumen">
+            <div class="carrito-total">
+                <div class="subtotal">
+                    <span>Subtotal: </span>
+                    <span>${{ calcularSubtotal() }} MXN</span>
+                </div>
+
+                <div class="iva">
+                    <span>IVA (16%): </span>
+                    <span>${{ calcularIVA() | number: '1.2-2' }} MXN</span>
+                </div>
+
+                <div class="total">
+                    <span>Total: </span>
+                    <span>${{ calcularTotal() }} MXN</span>
+                </div>
+            </div>
+            <button class="recibo-button" [disabled]="carrito.length === 0" (click)="procesarCompra()">Realizar Pedido</button>
+        </div>
+    </div>
+
+    <p *ngIf="carrito.length === 0" class="carrito-vacio">
+        No hay productos en el carrito
+    </p>
+
+    <div *ngIf="recibo" class="recibo">
+        <h3 class="recibo-titulo">Recibo</h3>
+        <pre class="recibo-contenido">{{ recibo }}</pre>
+    </div>
+</div>

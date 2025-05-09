@@ -1,0 +1,61 @@
+<div class="inventario-container">
+    <h2>Gestión de Inventario</h2>
+    
+    <!-- Formulario para agregar/editar -->
+    <div class="form-section">
+      <h3>{{ productoEditar ? 'Editar Producto' : 'Nuevo Producto' }}</h3>
+      <input type="number" [(ngModel)]="(productoEditar || nuevoProducto).id" placeholder="ID">
+      <input type="text" [(ngModel)]="(productoEditar || nuevoProducto).nombre" placeholder="Nombre">
+      <input type="number" [(ngModel)]="(productoEditar || nuevoProducto).precio" placeholder="Precio">
+      <input type="text" [(ngModel)]="(productoEditar || nuevoProducto).imagen" placeholder="URL Imagen">
+      
+      <button *ngIf="!productoEditar" (click)="agregarProducto()">Agregar</button>
+      <button *ngIf="productoEditar" (click)="guardarEdicion()">Guardar</button>
+      <button *ngIf="productoEditar" (click)="productoEditar = null">Cancelar</button>
+    </div>
+
+    <div class="form-group">
+      <label>Stock:</label>
+      <input 
+        type="number" 
+        [(ngModel)]="(productoEditar || nuevoProducto).stock" 
+        placeholder="Stock"
+        min="0"
+        required
+        class="form-control"
+      >
+      <div *ngIf="(productoEditar || nuevoProducto).stock < 0" class="text-danger">
+        El stock no puede ser negativo.
+      </div>
+    </div>
+  
+    <!-- Listado de productos -->
+    <div class="list-section">
+      <h3>Productos en Inventario</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio | currency }}</td>
+            <td>
+              <button (click)="editarProducto(producto)">Editar</button>
+              <button (click)="eliminarProducto(producto.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+
+    <!-- Añadir al final del template -->
+<button (click)="irACatalogo()" class="nav-button">Volver al Catálogo</button>
+  </div>
